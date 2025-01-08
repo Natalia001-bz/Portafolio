@@ -26,3 +26,6 @@ Estoy abierta a nuevas oportunidades y colaboraciones. Si deseas discutir un pro
 📞 (+57) 3135895623 
 🔗 [LinkedIn](https://www.linkedin.com/in/nataliaberriozuletaiozuleta-desarrolloweb/) | [GitHub](https://github.com/Natalia001-bz)
 
+
+
+

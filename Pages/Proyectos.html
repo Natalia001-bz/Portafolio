@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/proyectos.css">
+
+</head>
+<body>
+    <nav> 
+        <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="quien-soy.html">Acerca de mí</a></li>
+            <li><a href="#">Proyectos</a></li> 
+            <li><a href="blog.html">Blog</a></li> 
+            <li><a href="Contacto.html">Contacto</a></li> 
+
+        </ul>
+    </nav>
+
+
+    <div class="container">
+        <div class="col-izq">
+            <div class="items"> 
+            <button class="item-button" onclick="verProyecto('proyectos')">Proyectos</button>
+            <button class="item-button" onclick="verProyecto('proyecto1')">Proyecto 1</button> 
+            <button class="item-button" onclick="verProyecto('proyecto2')">Proyecto 2</button>
+            <button class="item-button" onclick="verProyecto('proyecto3')">Proyecto 3</button> 
+        </div>
+        <div id="proyectos" class="pestaña">
+            <h2>Proyecto</h2>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia earum rerum hic tenetur a sapiente delectus.</p> 
+            <h2>Recomendaciones, experiencias</h2>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+    </div>
+        <div id="proyecto1" class="pestaña" style="display:none;"> <h2>Proyecto 1</h2> <p>Descripción del Proyecto 1. ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia earum rerum hic tenetur a sapiente delectu  </p>
+            <img src="/asset    s/img/nat5.jpg" alt="proyecto1" width="100px">
+        </div>
+        <div id="proyecto2" class="pestaña" style="display:none;"> 
+            <h2>Proyecto 2</h2> 
+            <p>Descripción del Proyecto 2. ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia earum rerum hic tenetur a sapiente delectu </p>
+            <img src="/assets/img/nat5.jpg" alt="proyecto1" width="100px">
+
+        </div>
+        <div id="proyecto3" class="pestaña" style="display:none;"> <h2>Proyecto 3</h2> <p>Descripción del Proyecto 3.  ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia earum rerum hic tenetur a sapiente delectu</p>
+            <img src="/assets/img/nat5.jpg" alt="proyecto1" width="100px">
+
+        </div>
+        </div> 
+
+    <div class="col-der">        
+
+        <div class="carousel">
+            <button class="carousel-button" id="prev-btn">&lt;</button>
+            <div class="carousel-container">
+                <div class="carousel-slide">
+                    <img src="/assets/img/nat3.jpg" alt="Imagen 1">
+                    <img src="/assets/img/nat4.jpg" alt="Imagen 2">
+                    <img src="/assets/img/nat5.jpg" alt="Imagen 3">
+                    <img src="/assets/img/nat8.jpg" alt="Imagen 4">
+                </div>
+                
+            </div>
+            
+            <button class="carousel-button" id="next-btn">&gt;</button>
+    
+        </div>
+    
+        <div class="info-proyectos">
+            <button class="button-proyecto">Ir al proyecto</button> 
+            <button class="button-github" id="contraste">Ver en GitHub</button> 
+        </div>
+
+        <div class="skills"> <h2>Skills</h2> 
+            <div class="grid-container">
+                <div class="grid-item"><img src="/assets/img/html.png" alt="html"></div>
+                <div class="grid-item"><img src="/assets/img/css.png" alt="css"></div>
+                <div class="grid-item"><img src="/assets/img/bootstrap.png" alt="bootstrap"></div>
+                <div class="grid-item"><img src="/assets/img/javaScript.png" alt="javascript"></div>
+                <div class="grid-item"><img src="/assets/img/java.png" alt="java"></div>
+                <div class="grid-item"><img src="/assets/img/sql.png" alt="sql"></div>
+                <div class="grid-item"><img src="/assets/img/mongodb.png" alt="mongodb"></div>
+                <div class="grid-item"><img src="/assets/img/scrum.png" alt="scrum"></div>
+            </div>
+        </div> 
+    </div>
+
+<script src="/script.js"></script>
+<script src="/carrousel.js"></script>
+
+</body>
+</html>
