@@ -4,11 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="color-1.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/style-switcher.css">
+    <link rel="stylesheet" href="css/skins/color-1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!--=== Color de temas Switcher === -->
+    <link rel="stylesheet" href="css/skins/color-1.css" class="alternate-style" title="color-1" disabled>
+    <link rel="stylesheet" href="css/skins/color-2.css" class="alternate-style" title="color-2" disabled>
+    <link rel="stylesheet" href="css/skins/color-3.css" class="alternate-style" title="color-3" disabled>
+    <link rel="stylesheet" href="css/skins/color-4.css" class="alternate-style" title="color-4" disabled>
+    <link rel="stylesheet" href="css/skins/color-5.css" class="alternate-style" title="color-5" disabled>
 </head>
-<body>
+<body >
 
 <!-- ==== Sección Inicio === -->
 <div class="main-container">
@@ -21,11 +28,11 @@
         <span></span>
     </div>
     <ul class="nav">
-        <li><a href=""><i class="fa fa-home"></i>Home</a></li>
-        <li><a href=""><i class="fa fa-user"></i>Acerca de mí</a></li>
-        <li><a href=""><i class="fa fa-list"></i>Proyectos</a></li>
-        <li><a href=""><i class="fa fa-briefcase"></i>blog</a></li>
-        <li><a href=""><i class="fa fa-comments"></i>contacto</a></li>
+        <li><a href="#home" class="active"><i class="fa fa-home"></i>Home</a></li>
+        <li><a href="#about"><i class="fa fa-user"></i>Acerca de mí</a></li>
+        <li><a href="#service"><i class="fa fa-list"></i>Proyectos</a></li>
+        <li><a href="#portfolio"><i class="fa fa-briefcase"></i>blog</a></li>
+        <li><a href="#contact"><i class="fa fa-comments"></i>contacto</a></li>
     </ul>
 </div>
 <!--=== Termina Lateral==== -->
@@ -35,7 +42,7 @@
 
 
     <!-- ==== Sección Inicio === -->
-<section class="home section hidden">
+<section class="home section " id="home">
     <div class="container">
         <div class="row">
             <div class="home-info padd-15">
@@ -54,7 +61,7 @@
 
 
 <!-- ==== Seccion Acerca de mí === -->
-<section class="about section hidden">
+<section class="about section " id="about">
     <div class="container">
         <div class="row">
             <div class="section-title padd-15">
@@ -264,7 +271,7 @@
 
 
 <!--=== inicia sección Servicios ====-->
-<section class="service section">
+<section class="service section " id="service">
     <div class="container">
         <div class="row">
             <div class="section-title padd-15">
@@ -273,7 +280,7 @@
         </div>
         <div class="row">
         <!--=== servicio item===-->
-        <div class="srvice-item padd-15">
+        <div class="service-item padd-15">
             <div class="service-item-inner">
                 <div class="icon">
                     <i class="fa fa-mobile-alt"></i>
@@ -284,7 +291,7 @@
         </div>
         <!--=== termina servicio item===-->
           <!--=== servicio item===-->
-          <div class="srvice-item padd-15">
+          <div class="service-item padd-15">
             <div class="service-item-inner">
                 <div class="icon">
                     <i class="fa fa-laptop-code"></i>
@@ -295,7 +302,7 @@
         </div>
         <!--=== termina servicio item===-->
           <!--=== servicio item===-->
-          <div class="srvice-item padd-15">
+          <div class="service-item padd-15">
             <div class="service-item-inner">
                 <div class="icon">
                     <i class="fa fa-palette"></i>
@@ -306,7 +313,7 @@
         </div>
         <!--=== termina servicio item===-->
           <!--=== servicio item===-->
-          <div class="srvice-item padd-15">
+          <div class="service-item padd-15">
             <div class="service-item-inner">
                 <div class="icon">
                     <i class="fa fa-code"></i>
@@ -317,7 +324,7 @@
         </div>
         <!--=== termina servicio item===-->
           <!--=== servicio item===-->
-          <div class="srvice-item padd-15">
+          <div class="service-item padd-15">
             <div class="service-item-inner">
                 <div class="icon">
                     <i class="fa fa-search"></i>
@@ -333,25 +340,203 @@
 </section>
 <!--===  Termina sección Servicios ====-->
 
+
+<!--===  Inicia sección Proyectos ====-->
+<section class="portfolio section" id="portfolio">
+    <div class="container">
+        <div class="row">
+            <div class="section-title padd-15">
+                <h2>Proyectos</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="portfolio-heading padd-15">
+                <h2>Proyectos recientes :</h2>
+            </div>
+        </div>
+        <div class="row">
+            <!--=== Inicia Proyecto item ===-->
+            <div class="portfolio-item padd-15">
+                <div class="portfolio-item-inner shadow-dark">
+                    <div class="portfolio-img">
+                        <img src="./images/Captura de pantalla 2025-01-24 232851.png" alt="Sitio Web cimics">
+                    </div>
+                    <button class="item-button" onclick="verProyecto('proyecto1')">ver proyecto</button>
+                    <button onclick="ocultarProyecto('proyecto1')">Ocultar Proyecto </button>
+                </div>
+            </div>
+            <!--Descripción del proyecto desplegable-->
+            <div id="proyecto1" class="pestaña" style="display:none;"> <h2>Sitio web de Comics</h2> <p>Rol: Desarrolladora Full Stack 
+                Mayo - Septiembre de 2023 
+                ● Desarrollé un sitio web dinámico según requerimientos de diseño, utilizando React.js, Redux y 
+                Node.js, con funcionalidades como creación de perfiles, estadísticas de lectura y consumo de APIs 
+                para novedades. 
+                ● Diseñé un sistema de gestión de usuarios que permitió a los clientes guardar preferencias y añadir 
+                favoritos, mejorando la experiencia y usabilidad como aspecto diferenciador. 
+                . HABILIDADES  
+                ● HTML5 | CSS3 | JavaScript | node.js | Bootstrap | tailwind CSS | Java | Spring Boot | MySQL | 
+                MongoDB | Git | Metodologías Ágiles (Scrum).   </p>
+                <img src="/asset    s/img/nat5.jpg" alt="proyecto1" width="100px">
+<!-- Carousel con imágenes del proyecto-->
+<div class="carousel">
+    <button class="carousel-button" id="prev-btn">&lt;</button>
+    <div class="carousel-container">
+        <div class="carousel-slide">
+            <img src="images/Captura de pantalla 2025-01-24 232919.png" alt="Imagen 1">
+            <img src="images/Captura de pantalla 2025-01-24 232941.png" alt="Imagen 2">
+            <img src="images/Captura de pantalla 2025-01-24 232941.png" alt="Imagen 3">
+            <img src="images/Captura de pantalla 2025-01-24 232911.png" alt="Imagen 4">
+        </div>
+    </div>
+    <button class="carousel-button" id="next-btn">&gt;</button>
+</div>
+<!-- Termina coarousel -->
+<!-- Skills del proyecto-->
+     <div class="skills"> <h2>Skills</h2> 
+            <div class="grid-container">
+                <div class="grid-item"><img src="/assets/img/html.png" alt="html"></div>
+                <div class="grid-item"><img src="/assets/img/css.png" alt="css"></div>
+                <div class="grid-item"><img src="/assets/img/bootstrap.png" alt="bootstrap"></div>
+                <div class="grid-item"><img src="/assets/img/javaScript.png" alt="javascript"></div>
+                <div class="grid-item"><img src="/assets/img/java.png" alt="java"></div>
+                <div class="grid-item"><img src="/assets/img/sql.png" alt="sql"></div>
+                <div class="grid-item"><img src="/assets/img/mongodb.png" alt="mongodb"></div>
+                <div class="grid-item"><img src="/assets/img/scrum.png" alt="scrum"></div>
+            </div>
+        </div> 
+    </div>
+    <!-- Termina Skills del proyecto-->
+            </div>
+            <!--=== Termina Proyecto item ===-->
+
+            <!--=== Inicia Proyecto item ===-->
+            <div class="portfolio-item padd-15">
+                <div class="portfolio-item-inner shadow-dark">
+                    <div class="portfolio-img">
+                        <img src="./images/Captura de pantalla 2025-01-24 232851.png" alt="Sitio Web cimics">
+                    </div>
+                </div>
+            </div>
+            <!--=== Termina Proyecto item ===-->
+            <!--=== Inicia Proyecto item ===-->
+            <div class="portfolio-item padd-15">
+                <div class="portfolio-item-inner shadow-dark">
+                    <div class="portfolio-img">
+                        <img src="./images/Captura de pantalla 2025-01-24 232851.png" alt="Sitio Web cimics">
+                    </div>
+                </div>
+            </div>
+            <!--=== Termina Proyecto item ===-->
+        </div>
+    </div>
+</section>
+<!--===  Termina sección Proyectos ====-->
+
+<!--=== Inicia  sección contacto ===-->
+<section class="contact section" id="contact">
+<div class="container">
+    <div class="row">
+        <div class="section-title padd-15">
+            <h2>Contáctame!</h2>
+        </div>
+    </div>
+    <h3 class="contact-title padd-15" > ¿ Tienes alguna pregunta ?</h3>
+    <h4 class="contact-sub-title padd-15"> ¡Estaré encantada de conectar contigo!</h4>
+    <div class="row">
+        <!-- === información de contacto item ===-->
+        <div class="contact-info-item padd-15">
+            <div class="icon"><i class="fa fa-phone"></i></div>
+            <h4>Contactame</h4>
+            <p>+57 36135822572</p>
+        </div>
+        <!-- === información de contacto item ===-->
+        <div class="contact-info-item padd-15">
+            <div class="icon"><i class="fa fa-envelope"></i></div>
+            <h4>Email</h4>
+            <p>bnata190@gmail.com</p>
+        </div>
+        <!-- === información de contacto item ===-->
+        <div class="contact-info-item padd-15">
+            <div class="icon"><i class="fa fa-brands fa-linkedin"></i></div>
+            <h4>Linkedin</h4>
+            <p>Conectemos en Linkedin</p>
+        </div>
+            <!-- === información de contacto item ===-->
+            <div class="contact-info-item padd-15">
+                <div class="icon"><i class="fa fa-brands fa-github"></i></div>
+                <h4>GitHub</h4>
+                <p>ver repositorio</p>
+            </div>
+    </div>
+</div>
+<h3 class="contact-title padd-15"> Envíame un mensaje</h3>
+<h4 class="contact-sub-title padd-15">Estoy abierta a explorar oportunidades y trabajar conjuntamente en iniciativas innovadoras.</h4>
+<!--=== Formulario de contacto ===-->
+<div class="row">
+    <form  action="https://formspree.io/f/xbldypvd" method="post"   class="contact-form padd-15">
+        <div class="row">
+            <div class="form-item col-6 padd-15">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="name" placeholder="Nombre">
+                </div>
+            </div>
+            <div class="form-item col-6 padd-15">
+                <div class="form-group">
+                    <input type="email" class="form-control"  id="email" placeholder="Email">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-item col-12 padd-15">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="subject"  placeholder="Asunto">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-item col-12 padd-15">
+                <div class="form-group">
+                <textarea name="" class="form-control" id="message" placeholder="Mensaje"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-item col-12 padd-15">
+            <button type="submit" class="btn" id="btnSubmit"> Enviar</button>
+            </div>
+        </div>
+    </form>
+    <div id="success-message"></div>
+</div>
+</div>
+    
+</section>
+<!--=== Termina sección contacto ===-->
 </div>
 <!--=== Finaliza Main content-->
 </div>
 <!-- ==== Finaliza Main container === -->
 
 
-
-
-<!-- ==== inicio === -->
-<!-- ==== inicio === -->
-<!-- ==== inicio === -->
-<!-- ==== inicio === -->
-
-
-
-
-
-
+<!--=====Style Switcher =====-->
+<div class="style-switcher">
+    <div class="style-switcher-toggler s-icon">
+        <i class="fas fa-cog fa-spin"></i>
+    </div>
+    <div class="day-night s-icon">
+        <i class="fas "></i>
+    </div>
+    <h4>Tema</h4>
+    <div class="colors">
+        <span class="color-1" onclick="setActiveStyle('color-1')"></span>
+        <span class="color-2" onclick="setActiveStyle('color-2')"></span>
+        <span class="color-3" onclick="setActiveStyle('color-3')"></span>
+        <span class="color-4" onclick="setActiveStyle('color-4')"></span>
+        <span class="color-5" onclick="setActiveStyle('color-5')"></span>
+    </div>
+</div>
 <!--=====Scripts=====-->
-<script src="script.js"></script>
+<script src="js/script.js"></script>
+<script src="js/style-switcher.js"></script>
 </body>
 </html>
