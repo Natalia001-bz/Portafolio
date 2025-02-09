@@ -182,6 +182,7 @@ function ocultarProyecto(idProyecto) {
       proyecto.style.display = 'none';
     }
   }
+
 // ========== Termina Funcionalidad para proyectos ===========*//
 
 
@@ -193,25 +194,74 @@ const img = document.querySelectorAll('.carousel-slide img');
 const prevBtn = document.querySelector('#prev-btn');
 const nextBtn = document.querySelector('#next-btn');
 
-let currentIndex = 0;
-const totalImages = img.length;
+let imgActual = 0;
+const totalImg = img.length;
+let direccion = 1;
 
-// Función para actualizar la posición del carrusel
-function updateCarousel() {
-    const offset = -currentIndex * 100; 
-    slide.style.transform = `translateX(${offset}%)`;
+function carouselPosition() {
+      const desplazamiento = -imgActual * 100; 
+    slide.style.transform = `translateX(${desplazamiento}%)`;
 }
 
-// Evento para el botón "Siguiente"
+function siguienteImg() {
+    if(imgActual === totalImg-1){
+      direccion = -1;
+    }else if(imgActual === 0){
+direccion = 1;
+    }
+    imgActual= (imgActual+ direccion+totalImg)% totalImg;
+    carouselPosition();
+}
 nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % totalImages; 
-    updateCarousel();
+    siguienteImg(); 
+    reiniciarCarousel();
 });
 
-// Evento para el botón "Anterior"
 prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-    updateCarousel();
+  direccion = -1;
+  siguienteImg(); 
+  reiniciarCarousel();
 });
+
+let autoSlide = setInterval(siguienteImg, 3000);
+
+const reiniciarCarousel = () => {
+    clearInterval(autoSlide);
+    autoSlide = setInterval(siguienteImg, 3000);
+}
+;
 
 // ==========  Termina Funcionalidad para carousel ===========*//
+
+
+
+
+
+function abrirModal(idProyecto) {
+  const modal = document.getElementById('modal');
+  const proyectoAMostrar = document.getElementById(idProyecto);
+  
+  if (proyectoAMostrar) {
+      modal.style.display = 'block';
+  }
+}
+
+// Cerrar el modal
+function cerrarModal() {
+  const modal = document.getElementById('modal');
+  modal.style.display = 'none';
+}
+
+// Cerrar el modal al hacer clic fuera del contenido o presionar Escape
+window.onclick = function(event) {
+  const modal = document.getElementById('modal');
+  if (event.target === modal) {
+      cerrarModal();
+  }
+}
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === "Escape") {
+      cerrarModal();
+  }
+});

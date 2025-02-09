@@ -361,52 +361,70 @@
                     <div class="portfolio-img">
                         <img src="./images/Captura de pantalla 2025-01-24 232851.png" alt="Sitio Web cimics">
                     </div>
-                    <button class="item-button" onclick="verProyecto('proyecto1')">ver proyecto</button>
-                    <button onclick="ocultarProyecto('proyecto1')">Ocultar Proyecto </button>
+                    <!-- <button class="item-button" onclick="verProyecto('proyecto1')">ver proyecto</button>
+                    <button onclick="ocultarProyecto('proyecto1')">Ocultar Proyecto </button> -->
+                    <button class="item-button" onclick="abrirModal('proyecto1')">Ver Proyecto</button>
                 </div>
             </div>
             <!--Descripción del proyecto desplegable-->
-            <div id="proyecto1" class="pestaña" style="display:none;"> <h2>Sitio web de Comics</h2> <p>Rol: Desarrolladora Full Stack 
-                Mayo - Septiembre de 2023 
-                ● Desarrollé un sitio web dinámico según requerimientos de diseño, utilizando React.js, Redux y 
+<!-- Contenedor del Modal -->
+<div id="modal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close-button" onclick="cerrarModal()">&times;</span>
+        <div id="proyecto1" class="pestaña home-info">
+            <h3>Sitio web de Comics</h3>
+         
+            <!-- Carousel con imágenes del proyecto -->
+            <div class="carousel">
+                <button class="carousel-button" id="prev-btn">&lt;</button>
+                <div class="carousel-container">
+                    <div class="carousel-slide">
+                        <img src="images/Captura de pantalla 2025-01-24 232919.png" alt="Imagen 1">
+                        <img src="images/Captura de pantalla 2025-01-24 232941.png" alt="Imagen 2">
+                        <img src="images/Captura de pantalla 2025-01-24 232941.png" alt="Imagen 3">
+                        <img src="images/Captura de pantalla 2025-01-24 232911.png" alt="Imagen 4">
+                    </div>
+                </div>
+                <button class="carousel-button" id="next-btn">&gt;</button>
+            </div>
+            <button>Ver en GitHub</button>
+            <!-- Skills del proyecto -->
+            <div class="skills "> 
+                <h3>Skills</h3> 
+                <div class="grid-container">
+                    <!-- Aquí van los íconos de habilidades -->
+                    <div class="icon-skill">
+                        <i class="fa-brands fa-html5"></i>
+                    </div>
+                    <div class="icon-skill">
+                        <i class="fa-brands fa-js"></i>
+                    </div>
+                    <div class="icon-skill">
+                        <i class="fa-brands fa-js"></i>
+                    </div>
+                    <div class="icon-skill">
+                        <i class="fa-brands fa-react"></i>
+                    </div> 
+                    <div class="icon-skill">
+                        <i class="fa-brands fa-bootstrap"></i>
+                    </div>
+                    <div class="icon-skill">
+                        <i class="fa-brands fa-css3-alt"></i>
+                    </div>
+                    
+                    <!-- ... otros íconos ... -->
+                </div>
+            </div> 
+            <p>           
+                ● Sitio web dinámico según requerimientos de diseño, utilizando React.js, Redux y 
                 Node.js, con funcionalidades como creación de perfiles, estadísticas de lectura y consumo de APIs 
-                para novedades. 
-                ● Diseñé un sistema de gestión de usuarios que permitió a los clientes guardar preferencias y añadir 
+                para novedades.</p>
+            <p> ● Cuenta  con sistema de gestión de usuarios para guardar preferencias y añadir 
                 favoritos, mejorando la experiencia y usabilidad como aspecto diferenciador. 
-                . HABILIDADES  
-                ● HTML5 | CSS3 | JavaScript | node.js | Bootstrap | tailwind CSS | Java | Spring Boot | MySQL | 
-                MongoDB | Git | Metodologías Ágiles (Scrum).   </p>
-                <img src="/asset    s/img/nat5.jpg" alt="proyecto1" width="100px">
-<!-- Carousel con imágenes del proyecto-->
-<div class="carousel">
-    <button class="carousel-button" id="prev-btn">&lt;</button>
-    <div class="carousel-container">
-        <div class="carousel-slide">
-            <img src="images/Captura de pantalla 2025-01-24 232919.png" alt="Imagen 1">
-            <img src="images/Captura de pantalla 2025-01-24 232941.png" alt="Imagen 2">
-            <img src="images/Captura de pantalla 2025-01-24 232941.png" alt="Imagen 3">
-            <img src="images/Captura de pantalla 2025-01-24 232911.png" alt="Imagen 4">
+            </p>
         </div>
     </div>
-    <button class="carousel-button" id="next-btn">&gt;</button>
 </div>
-<!-- Termina coarousel -->
-<!-- Skills del proyecto-->
-     <div class="skills"> <h2>Skills</h2> 
-            <div class="grid-container">
-                <div class="grid-item"><img src="/assets/img/html.png" alt="html"></div>
-                <div class="grid-item"><img src="/assets/img/css.png" alt="css"></div>
-                <div class="grid-item"><img src="/assets/img/bootstrap.png" alt="bootstrap"></div>
-                <div class="grid-item"><img src="/assets/img/javaScript.png" alt="javascript"></div>
-                <div class="grid-item"><img src="/assets/img/java.png" alt="java"></div>
-                <div class="grid-item"><img src="/assets/img/sql.png" alt="sql"></div>
-                <div class="grid-item"><img src="/assets/img/mongodb.png" alt="mongodb"></div>
-                <div class="grid-item"><img src="/assets/img/scrum.png" alt="scrum"></div>
-            </div>
-        </div> 
-    </div>
-    <!-- Termina Skills del proyecto-->
-            </div>
             <!--=== Termina Proyecto item ===-->
 
             <!--=== Inicia Proyecto item ===-->
@@ -415,8 +433,68 @@
                     <div class="portfolio-img">
                         <img src="./images/Captura de pantalla 2025-01-24 232851.png" alt="Sitio Web cimics">
                     </div>
+                    <button class="item-button" onclick="abrirModal('proyecto2')">Ver Proyecto</button>
                 </div>
             </div>
+            <!--Descripción del proyecto desplegable-->
+<!-- Contenedor del Modal -->
+<div id="modal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close-button" onclick="cerrarModal()">&times;</span>
+        <div id="proyecto1" class="pestaña home-info">
+            <h3>Sitio web de Comics</h3>
+         
+            <!-- Carousel con imágenes del proyecto -->
+            <div class="carousel">
+                <button class="carousel-button" id="prev-btn">&lt;</button>
+                <div class="carousel-container">
+                    <div class="carousel-slide">
+                        <img src="images/Captura de pantalla 2025-01-24 232919.png" alt="Imagen 1">
+                        <img src="images/Captura de pantalla 2025-01-24 232941.png" alt="Imagen 2">
+                        <img src="images/Captura de pantalla 2025-01-24 232941.png" alt="Imagen 3">
+                        <img src="images/Captura de pantalla 2025-01-24 232911.png" alt="Imagen 4">
+                    </div>
+                </div>
+                <button class="carousel-button" id="next-btn">&gt;</button>
+            </div>
+            <button>Ver en GitHub</button>
+            <!-- Skills del proyecto -->
+            <div class="skills "> 
+                <h3>Skills</h3> 
+                <div class="grid-container">
+                    <!-- Aquí van los íconos de habilidades -->
+                    <div class="icon-skill">
+                        <i class="fa-brands fa-html5"></i>
+                    </div>
+                    <div class="icon-skill">
+                        <i class="fa-brands fa-js"></i>
+                    </div>
+                    <div class="icon-skill">
+                        <i class="fa-brands fa-js"></i>
+                    </div>
+                    <div class="icon-skill">
+                        <i class="fa-brands fa-react"></i>
+                    </div> 
+                    <div class="icon-skill">
+                        <i class="fa-brands fa-bootstrap"></i>
+                    </div>
+                    <div class="icon-skill">
+                        <i class="fa-brands fa-css3-alt"></i>
+                    </div>
+                    
+                    <!-- ... otros íconos ... -->
+                </div>
+            </div> 
+            <p>           
+                ● Sitio web dinámico según requerimientos de diseño, utilizando React.js, Redux y 
+                Node.js, con funcionalidades como creación de perfiles, estadísticas de lectura y consumo de APIs 
+                para novedades.</p>
+            <p> ● Cuenta  con sistema de gestión de usuarios para guardar preferencias y añadir 
+                favoritos, mejorando la experiencia y usabilidad como aspecto diferenciador. 
+            </p>
+        </div>
+    </div>
+        </div>
             <!--=== Termina Proyecto item ===-->
             <!--=== Inicia Proyecto item ===-->
             <div class="portfolio-item padd-15">
@@ -426,6 +504,65 @@
                     </div>
                 </div>
             </div>
+            <!--Descripción del proyecto desplegable-->
+<!-- Contenedor del Modal -->
+<div id="modal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close-button" onclick="cerrarModal()">&times;</span>
+        <div id="proyecto1" class="pestaña home-info">
+            <h3>Sitio web de Comics</h3>
+         
+            <!-- Carousel con imágenes del proyecto -->
+            <div class="carousel">
+                <button class="carousel-button" id="prev-btn">&lt;</button>
+                <div class="carousel-container">
+                    <div class="carousel-slide">
+                        <img src="images/Captura de pantalla 2025-01-24 232919.png" alt="Imagen 1">
+                        <img src="images/Captura de pantalla 2025-01-24 232941.png" alt="Imagen 2">
+                        <img src="images/Captura de pantalla 2025-01-24 232941.png" alt="Imagen 3">
+                        <img src="images/Captura de pantalla 2025-01-24 232911.png" alt="Imagen 4">
+                    </div>
+                </div>
+                <button class="carousel-button" id="next-btn">&gt;</button>
+            </div>
+            <button>Ver en GitHub</button>
+            <!-- Skills del proyecto -->
+            <div class="skills "> 
+                <h3>Skills</h3> 
+                <div class="grid-container">
+                    <!-- Aquí van los íconos de habilidades -->
+                    <div class="icon-skill">
+                        <i class="fa-brands fa-html5"></i>
+                    </div>
+                    <div class="icon-skill">
+                        <i class="fa-brands fa-js"></i>
+                    </div>
+                    <div class="icon-skill">
+                        <i class="fa-brands fa-js"></i>
+                    </div>
+                    <div class="icon-skill">
+                        <i class="fa-brands fa-react"></i>
+                    </div> 
+                    <div class="icon-skill">
+                        <i class="fa-brands fa-bootstrap"></i>
+                    </div>
+                    <div class="icon-skill">
+                        <i class="fa-brands fa-css3-alt"></i>
+                    </div>
+                    
+                    <!-- ... otros íconos ... -->
+                </div>
+            </div> 
+            <p>           
+                ● Sitio web dinámico según requerimientos de diseño, utilizando React.js, Redux y 
+                Node.js, con funcionalidades como creación de perfiles, estadísticas de lectura y consumo de APIs 
+                para novedades.</p>
+            <p> ● Cuenta  con sistema de gestión de usuarios para guardar preferencias y añadir 
+                favoritos, mejorando la experiencia y usabilidad como aspecto diferenciador. 
+            </p>
+        </div>
+         </div>
+           </div>
             <!--=== Termina Proyecto item ===-->
         </div>
     </div>
@@ -473,7 +610,7 @@
 <h4 class="contact-sub-title padd-15">Estoy abierta a explorar oportunidades y trabajar conjuntamente en iniciativas innovadoras.</h4>
 <!--=== Formulario de contacto ===-->
 <div class="row">
-    <form  action="https://formspree.io/f/xbldypvd" method="post"   class="contact-form padd-15">
+    <form  action="https://formspree.io/f/xbldypvd" method="POST"   class="contact-form padd-15">
         <div class="row">
             <div class="form-item col-6 padd-15">
                 <div class="form-group">
