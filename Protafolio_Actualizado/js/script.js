@@ -1,166 +1,109 @@
 //* ========== Validación de formulario de contacto ===========*//
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector(".contact-form");
+  const btnSubmit = document.getElementById("btnSubmit");
+  const modal = document.getElementById("successModal");
+  const closeModalBtn = document.getElementById("closeModal");
 
-const form = document.querySelector(".contact-form");
-const btnSubmit = document.getElementById("btSubmit"); 
+  const formInputs = {
+      name: {
+          element: document.getElementById("name"),
+          rules: { required: true, minLength: 2, maxLength: 50, pattern: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/ },
+          errorMessages: { required: "El nombre es requerido", minLength: "Debe tener al menos 2 caracteres", maxLength: "No puede exceder 50 caracteres", pattern: "Solo letras y espacios" }
+      },
+      email: {
+          element: document.getElementById("email"),
+          rules: { required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ },
+          errorMessages: { required: "El correo es requerido", pattern: "Ingrese un correo válido" }
+      },
+      subject: {
+          element: document.getElementById("subject"),
+          rules: { required: true, minLength: 4, maxLength: 60 },
+          errorMessages: { required: "El asunto es requerido", minLength: "Debe tener al menos 4 caracteres", maxLength: "No puede exceder 60 caracteres" }
+      },
+      message: {
+          element: document.getElementById("message"),
+          rules: { required: true, minLength: 10, maxLength: 500 },
+          errorMessages: { required: "El mensaje es requerido", minLength: "Debe tener al menos 10 caracteres", maxLength: "No puede exceder 500 caracteres" }
+      }
+  };
 
-// Definición global de formInputs
-const formInputs = {
-  name: {
-    element: document.getElementById("name"),
-    rules: {
-      required: true,
-      minLength: 2,
-      maxLength: 50,
-      pattern: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/,
-    },
-    errorMessages: {
-      required: "El nombre es requerido",
-      minLength: "El nombre debe tener al menos 2 caracteres",
-      maxLength: "El nombre no puede exceder 50 caracteres",
-      pattern: "El nombre solo puede contener letras y espacios",
-    },
-  },
-  email: {
-    element: document.getElementById("email"),
-    rules: {
-      required: true,
-      pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-    },
-    errorMessages: {
-      required: "El correo electrónico es requerido",
-      pattern: "Por favor, ingrese un correo electrónico válido",
-    },
-  },
-  subject: {
-    element: document.getElementById("subject"),
-    rules: {
-      required: true,
-      minLength: 4,
-      maxLength: 60,
-    },
-    errorMessages: {
-      required: "El Asunto es requerido",
-      minLength: "El Asunto debe tener al menos 4 caracteres",
-      maxLength: "El Asunto no puede exceder 60 caracteres",
-    },
-  },
-  message: {
-    element: document.getElementById("message"),
-    rules: {
-      required: true,
-      minLength: 10,
-      maxLength: 500,
-    },
-    errorMessages: {
-      required: "El mensaje es requerido",
-      minLength: "El mensaje debe tener al menos 10 caracteres",
-      maxLength: "El mensaje no puede exceder 500 caracteres",
-    },
-  },
-};
-
-// Función para mostrar error
-function displayError(element, message) {
-  const formGroup = element.parentElement;
-  const errorDiv = document.createElement("div");
-  errorDiv.className = "error-message";
-  errorDiv.style.cssText = "color: red; font-size: 12px; margin-top: 5px;";
-  errorDiv.textContent = message;
-
-  // Remover error previo si existe
-  const existingError = formGroup.querySelector(".error-message");
-  if (existingError) {
-    formGroup.removeChild(existingError);
+  function displayError(element, message) {
+      let errorDiv = element.nextElementSibling;
+      if (!errorDiv || !errorDiv.classList.contains("error-message")) {
+          errorDiv = document.createElement("div");
+          errorDiv.className = "error-message";
+          errorDiv.style.cssText = "color: red; font-size: 12px; margin-top: 5px;";
+          element.parentElement.appendChild(errorDiv);
+      }
+      errorDiv.textContent = message;
+      element.style.borderColor = "red";
   }
 
-  formGroup.appendChild(errorDiv);
-  element.style.borderColor = "red"; 
-}
-
-// Función para limpiar error
-function clearError(element) {
-  const formGroup = element.parentElement;
-  const errorDiv = formGroup.querySelector(".error-message");
-  if (errorDiv) {
-    formGroup.removeChild(errorDiv);
+  function clearError(element) {
+      let errorDiv = element.nextElementSibling;
+      if (errorDiv && errorDiv.classList.contains("error-message")) {
+          errorDiv.remove();
+      }
+      element.style.borderColor = "";
   }
-  element.style.borderColor = ""; 
-}
 
-// Función principal de validación en Submit
-function validateFormOnSubmit(event) {
-  event.preventDefault();
+  function validateForm() {
+      let isValid = true;
+      Object.values(formInputs).forEach(({ element, rules, errorMessages }) => {
+          const value = element.value.trim();
+          clearError(element);
 
-  let isValid = true;
-  const errors = [];
-
-  // Validar cada campo
-  Object.keys(formInputs).forEach((inputName) => {
-    const input = formInputs[inputName];
-    const value = input.element.value.trim();
-    clearError(input.element);
-    
-    if (input.rules.required && !value) {
-      isValid = false;
-      errors.push({
-        element: input.element,
-        message: input.errorMessages.required,
+          if (rules.required && !value) {
+              isValid = false;
+              displayError(element, errorMessages.required);
+          } else {
+              if (rules.minLength && value.length < rules.minLength) {
+                  isValid = false;
+                  displayError(element, errorMessages.minLength);
+              }
+              if (rules.maxLength && value.length > rules.maxLength) {
+                  isValid = false;
+                  displayError(element, errorMessages.maxLength);
+              }
+              if (rules.pattern && !rules.pattern.test(value)) {
+                  isValid = false;
+                  displayError(element, errorMessages.pattern);
+              }
+          }
       });
-    }
-
-    if (value) {
-      if (input.rules.minLength && value.length < input.rules.minLength) {
-        isValid = false;
-        errors.push({
-          element: input.element,
-          message: input.errorMessages.minLength,
-        });
-      }
-
-      if (input.rules.maxLength && value.length > input.rules.maxLength) {
-        isValid = false;
-        errors.push({
-          element: input.element,
-          message: input.errorMessages.maxLength,
-        });
-      }
-
-      if (input.rules.pattern && !input.rules.pattern.test(value)) {
-        isValid = false;
-        errors.push({
-          element: input.element,
-          message: input.errorMessages.pattern,
-        });
-      }
-    }
-  });
-
-  // Mostrar errores si existen
-  errors.forEach((error) => {
-    displayError(error.element, error.message);
-  });
-
-  if (isValid) {
-    btnSubmit.disabled = true;
-    btnSubmit.textContent = "Enviando...";
-
-    form.submit(); 
+      return isValid;
   }
 
-  return isValid; 
-}
+  Object.values(formInputs).forEach(({ element }) => element.addEventListener("input", () => clearError(element)));
 
-// Agregar evento submit al formulario
-form.addEventListener("submit", validateFormOnSubmit);
+  form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      if (!validateForm()) return;
 
-// Limpiar errores al escribir en los campos
-Object.keys(formInputs).forEach((inputName) => {
-  const input = formInputs[inputName].element;
-  
-  input.addEventListener("input", () => {
-    clearError(input);
+      btnSubmit.disabled = true;
+      btnSubmit.textContent = "Enviando...";
+
+      fetch(form.action, { method: "POST", body: new FormData(form), headers: { "Accept": "application/json" } })
+      .then(response => {
+          if (response.ok) {
+              form.reset();
+              modal.style.display = "flex";
+          } else {
+              return response.json().then(data => { throw new Error(data.error || "Error al enviar el mensaje."); });
+          }
+      })
+      .catch(error => alert("Error: " + error.message))
+      .finally(() => {
+          btnSubmit.disabled = false;
+          btnSubmit.textContent = "Enviar";
+      });
   });
+
+  closeModalBtn.addEventListener("click", () => modal.style.display = "none");
+  window.addEventListener("click", (event) => { if (event.target === modal) modal.style.display = "none"; });
 });
+
 // ========== Termina Validación de formulario de contacto ===========*//
 
 

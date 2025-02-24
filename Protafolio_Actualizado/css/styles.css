@@ -614,21 +614,24 @@ color: var(--text-black-900);
     margin-bottom:  30px;
 }
 
+
 .portfolio .portfolio-item-inner{
     border:  6px solid var(--bg-black-100);
     border-radius:  10px;
     overflow:  hidden;
     cursor: pointer;
+    
 }
 
 .portfolio .portfolio-item-inner .portfolio-img img{
     width: 100%;
+    height: 100%;
     display: block;
 }
 /* ==== Termina Estilos Proyectos ====*/
 
 
-/* ==== Inicia Estilos contaco ====*/
+/* ==== Inicia Estilos contacto ====*/
 .contact-title{
     color: var(--skin-color);
     text-align: center;
@@ -722,12 +725,40 @@ color: var(--text-black-900);
    margin-right: 40%;
 } 
 
-#success-message{
+/*MOdal*/
+/* Estilos para el modal */
+.modal {
     display: none;
-    color: green;
-    font-size: 14px;
-    margin-top: 10px;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.modal-content-send {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    color: rgb(25, 99, 82);
+}
+
+.close {
+    float: right;
+    font-size: 40px;
+    cursor: pointer;
+    color: var(--skin-color);
+    
+}
+
 /* ==== Termina Estilos  contacto ====*/
 
 

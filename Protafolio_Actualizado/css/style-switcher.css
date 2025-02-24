@@ -231,19 +231,32 @@ text-transform: capitalize;
 }
 
 .icon-skill{
-    font-size: 50px;
+    height: 60px;
+    width: 60px;
+    border-radius:  50%;
+    display: block;
+    margin:  0 auto 30px;
+    text-align: center;
+    transition:  all 0.3s ease;
+    
+    
+}
+.icon-skill .fa-brands{
+    font-size: 40px;
     line-height: 60px ;
     color:  var(--skin-color);
     transition:  all 0.3s ease;
     
     
 }
-
 .icon-skill:hover {
     background-color: var(--skin-color);
-    font-size:  45px;
+   
+}
+
+.icon-skill .fa-brands:hover{
+    font-size:  25px;
     color: #ffffff;
-    border-radius: 50%;
 }
 
 /*======  Termina Estilos para skills =====*/
