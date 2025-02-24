@@ -1,14 +1,13 @@
 //* =================== enlaces navbar ================ */
 document.addEventListener("DOMContentLoaded", function () {
-    function activeNav() {
-        const navLinks = document.querySelectorAll(".aside .nav li a");
+    const navLinks = document.querySelectorAll(".aside .nav li a");
+    const sections = document.querySelectorAll("section");
 
+    function activeNav() {
+      
         navLinks.forEach(link => {
             link.addEventListener("click", function () {
-             
                 navLinks.forEach(nav => nav.classList.remove("active"));
-                
-                
                 this.classList.add("active");
             });
         });
@@ -17,22 +16,32 @@ document.addEventListener("DOMContentLoaded", function () {
         function setActiveLink() {
             const currentHash = window.location.hash;
             navLinks.forEach(link => {
-                if (link.getAttribute("href") === currentHash) {
-                    link.classList.add("active");
-                } else {
-                    link.classList.remove("active");
-                }
+                link.classList.toggle("active", link.getAttribute("href") === currentHash);
             });
         }
 
-        
         setActiveLink();
-
-        
         window.addEventListener("hashchange", setActiveLink);
     }
 
+    function activateOnScroll() {
+        let scrollPosition = window.scrollY + 100; 
+
+        sections.forEach(section => {
+            if (
+                section.offsetTop <= scrollPosition &&
+                section.offsetTop + section.offsetHeight > scrollPosition
+            ) {
+                const targetId = section.getAttribute("id");
+                navLinks.forEach(link => {
+                    link.classList.toggle("active", link.getAttribute("href") === `#${targetId}`);
+                });
+            }
+        });
+    }
+
     activeNav();
+    window.addEventListener("scroll", activateOnScroll);
 });
 
 
