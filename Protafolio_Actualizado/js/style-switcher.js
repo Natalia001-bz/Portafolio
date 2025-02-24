@@ -1,3 +1,41 @@
+//* =================== enlaces navbar ================ */
+document.addEventListener("DOMContentLoaded", function () {
+    function activeNav() {
+        const navLinks = document.querySelectorAll(".aside .nav li a");
+
+        navLinks.forEach(link => {
+            link.addEventListener("click", function () {
+             
+                navLinks.forEach(nav => nav.classList.remove("active"));
+                
+                
+                this.classList.add("active");
+            });
+        });
+
+        
+        function setActiveLink() {
+            const currentHash = window.location.hash;
+            navLinks.forEach(link => {
+                if (link.getAttribute("href") === currentHash) {
+                    link.classList.add("active");
+                } else {
+                    link.classList.remove("active");
+                }
+            });
+        }
+
+        
+        setActiveLink();
+
+        
+        window.addEventListener("hashchange", setActiveLink);
+    }
+
+    activeNav();
+});
+
+
 //* ======================  Estilo del switcher ===================== *//
 
 const styleSwitcherToggle = document.querySelector(".style-switcher-toggler");
